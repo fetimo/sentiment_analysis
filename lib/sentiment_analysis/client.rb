@@ -38,11 +38,11 @@ module SentimentAnalysis
     end
 
 
-    def review(options)
-      raise ArgumentError.new(":text parameter is missing") unless options[:text]
-      query = {:api_key => @api_key, :text => options[:text]}
+    def review(options, format = nil)
+      raise ArgumentError.new(":text parameter is missing") unless options
+      query = {:api_key => @api_key, :text => options}
 
-      case options[:format]
+      case format
         when nil, :json then self.class.get('/review.json', :query => query)
         when :xml       then self.class.get('/review.xml',  :query => query).body
         else
