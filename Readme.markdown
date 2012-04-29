@@ -22,10 +22,10 @@ Simple way
 	puts sa.quota
 	  # => 5000
 
-	puts as.review("i don't like this")
+	puts sa.review("i don't like this")
 	  # => {"prob":0.732603741199471,"mood":"negative","text":"i don't like this"}
 
-	puts as.train(:text => "I don't like coffee'",:mood => 'negative')
+	puts sa.train(:text => "I don't like coffee'",:mood => 'negative')
       # => {"status":"ok"}
 	
 
@@ -43,7 +43,7 @@ Choose the format - :xml
 	  	     <quota_remaining>4976</quota_remaining>
 		   </result>
 
-	puts as.review("i don't like this", :format => :xml)
+	puts sa.review("i don't like this", :format => :xml)
 	  # => <?xml version="1.0" encoding="UTF-8"?>
   		   <result>
   		     <text>I don't like coffee</text>
@@ -51,7 +51,7 @@ Choose the format - :xml
   		     <prob>0.55865964876338</prob>
   		   </result>
  
-	puts as.train(:text => "I don't like coffee'",:mood => 'negative', :format => :xml)
+	puts sa.train(:text => "I don't like coffee'",:mood => 'negative', :format => :xml)
 	  # => <?xml version="1.0" encoding="UTF-8"?>
 		   <result>
 		     <status>ok</status>
